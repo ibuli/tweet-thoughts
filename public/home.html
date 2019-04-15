@@ -1,0 +1,34 @@
+<div class="row feed">
+<div class="col-md-4">
+	<div ng-hide="currentUser">
+		Login :
+		<br><br>
+		<input type="text" size="30" placeholder="Username" ng-model="username">
+		<br><br>
+		<input type="password" size="30" placeholder="Password" ng-model="password">
+		<br><br>
+		<button type="button" ng-click="signin()">Sign In</button>
+		<br><br>
+		<a href="#/signup">Not a member? SignUp</a>
+	</div>
+	<div ng-show="currentUser">
+		Hello, {{currentUser}}!
+		<br><br>
+		<a href ng-click="logout()">Logout</a>
+	</div>
+</div>
+<div class="col-md-8">
+	<div class="new-text" ng-show="currentUser">
+		<input type="text" class="form-control" placeholder="what do you want to write?" ng-model="newText">
+		<br>
+		<button type="button" class="btn" ng-click="submitNewText()">Submit</button>
+	</div>
+	<h3 ng-repeat="medias in media">
+		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+		{{ medias.text }}
+		<a href ng-click="removeMedia(medias)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+		<br>
+		<small>Posted by : {{ medias.username }}</small>
+	</h3>
+</div>
+</div>
